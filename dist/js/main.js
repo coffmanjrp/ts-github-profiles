@@ -22,7 +22,8 @@ function addReposToCard(repos) {
 }
 async function getRepos(username) {
     try {
-        const { data } = await axios(`${APIURL + username}/repos?sort=created`);
+        const res = await fetch(`${APIURL + username}/repos?sort=created`);
+        const data = await res.json();
         addReposToCard(data);
     }
     catch (err) {
@@ -56,7 +57,8 @@ function createUserCard(user) {
 }
 async function getUser(username) {
     try {
-        const { data } = await axios(APIURL + username);
+        const res = await fetch(APIURL + username);
+        const data = await res.json();
         createUserCard(data);
         getRepos(username);
     }

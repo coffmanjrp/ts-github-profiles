@@ -3,7 +3,7 @@ const form = document.getElementById('form') as HTMLFormElement;
 const search = document.getElementById('search') as HTMLInputElement;
 const main = document.getElementById('main') as HTMLElement;
 
-function createErrorCard(msg) {
+function createErrorCard(msg: string) {
   const cardHTML = `<div class="card">
     <h1>${msg}</h1>
   </div>`;
@@ -11,7 +11,12 @@ function createErrorCard(msg) {
   main.innerHTML = cardHTML;
 }
 
-function addReposToCard(repos) {
+type Repo = {
+  html_url: string;
+  name: string;
+};
+
+function addReposToCard(repos: Repo[]) {
   const reposEl = document.getElementById('repos') as HTMLDivElement;
 
   repos.slice(0, 10).forEach((repo) => {
@@ -25,9 +30,10 @@ function addReposToCard(repos) {
   });
 }
 
-async function getRepos(username) {
+async function getRepos(username: string) {
   try {
-    const { data } = await axios(`${APIURL + username}/repos?sort=created`);
+    const res = await fetch(`${APIURL + username}/repos?sort=created`);
+    const data = await res.json();
 
     addReposToCard(data);
   } catch (err) {
@@ -35,7 +41,16 @@ async function getRepos(username) {
   }
 }
 
-function createUserCard(user) {
+type User = {
+  avatar_url: string;
+  login: string;
+  bio: string;
+  followers: number;
+  following: number;
+  public_repos: number;
+};
+
+function createUserCard(user: User) {
   const cardHTML = `<div class="card">
   <div>
     <img
@@ -62,9 +77,10 @@ function createUserCard(user) {
   main.innerHTML = cardHTML;
 }
 
-async function getUser(username) {
+async function getUser(username: string) {
   try {
-    const { data } = await axios(APIURL + username);
+    const res = await fetch(APIURL + username);
+    const data = await res.json();
 
     createUserCard(data);
     getRepos(username);
