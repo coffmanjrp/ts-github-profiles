@@ -8,9 +8,14 @@
   box-sizing: border-box;
 }
 
+:root {
+  --primary-color: #221d64;
+  --secondary-color: #2e4592;
+}
+
 body {
   height: 100vh;
-  background-color: #2a2a72;
+  background-color: var(--primary-color);
   font-family: 'Poppins', sans-serif;
   color: #fff;
   overflow: hidden;

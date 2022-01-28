@@ -8,7 +8,7 @@
     margin-bottom: 2rem;
     padding: 1rem;
     width: 100%;
-    background-color: #2e4592;
+    background-color: var(--secondary-color);
     border: none;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
@@ -30,7 +30,7 @@
   margin: 0 1.5rem;
   padding: 3rem;
   max-width: 800px;
-  background-color: #3128a7;
+  background-color: var(--secondary-color);
   border-radius: 20px;
   box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
     0 15px 40px rgba(0, 0, 0, 0.1);
@@ -39,7 +39,7 @@
 .avatar {
   width: 150px;
   height: 150px;
-  border: 10px solid #2a2a72;
+  border: 10px solid var(--primary-color);
   border-radius: 50%;
 }
 
