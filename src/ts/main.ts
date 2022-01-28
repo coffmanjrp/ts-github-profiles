@@ -84,7 +84,7 @@ async function getUser(username: string) {
 
     createUserCard(data);
     getRepos(username);
-  } catch (err) {
+  } catch (err: any) {
     if (err.response.status === 404) {
       createErrorCard('No profile with this user name.');
     }

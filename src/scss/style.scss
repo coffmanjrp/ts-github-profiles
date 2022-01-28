@@ -1,4 +1,4 @@
-@import 'config';
+@use 'base';
 
 .user-form {
   width: 100%;
@@ -8,7 +8,7 @@
     margin-bottom: 2rem;
     padding: 1rem;
     width: 100%;
-    background-color: #4c2885;
+    background-color: #2e4592;
     border: none;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(154, 160, 185, 0.05),
